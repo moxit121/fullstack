@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* Basic styling for the slider container */
+.slider {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%; /* Adjust the width as needed */
+    margin: 0 auto;
+    border: 1px solid #ccc;
+    padding: 20px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Styling for the main image */
+  .slider-image {
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  .slider-image img {
+    max-width: 100%;
+    height: auto;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  
+  /* Styling for thumbnail images */
+  .thumbnails {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+  }
+  
+  .thumbnail {
+    width: 80px; /* Adjust the thumbnail size */
+    height: 60px; /* Adjust the thumbnail size */
+    margin: 0 5px;
+    cursor: pointer;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .thumbnail:hover {
+    transform: scale(1.1);
+  }
+  
+    </style>
+</head>
+
+<body>
+    <div class="slider">
+        <div class="thumbnails"></div>
+        <div class="slider-image">
+          <img id="mainImage" src="" alt="Selected Image">
+        </div>
+      </div>
+<script>
+    // Thumbnail images
+const images = [
+"960x0.webp",
+'Good_Food_Display_-_NCI_Visuals_Online.jpg',
+'Hamburger_(12164386105).jpg',
+"pexels-photo-376464.jpeg",
+"Shutterstock_1675475479.webp"
+// Add more image URLs here
+];
+
+// Function to create thumbnail nodes
+function createThumbnail(src) {
+const img = document.createElement('img');
+img.src = src;
+img.alt = 'Thumbnail';
+img.classList.add('thumbnail');
+
+// Event listener to change main image on thumbnail click
+img.addEventListener('click', function () {
+  document.getElementById('mainImage').src = src;
+});
+
+return img;
+}
+
+// Function to initialize the slider
+function initializeSlider(images) {
+const thumbnailsContainer = document.querySelector('.thumbnails');
+
+// Create thumbnail nodes for each image
+images.forEach((image) => {
+  const thumbnail = createThumbnail(image);
+  thumbnailsContainer.appendChild(thumbnail);
+});
+}
+
+// Initialize the slider
+initializeSlider(images);
+
+</script>      
+</body>
+</html>
