@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product List</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        img {
+            max-width: 50px;
+            max-height: 50px;
+        }
+
+        button {
+            background-color: #dc3545;
+            color: #fff;
+            border: none;
+            padding: 8px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #bd2130;
+        }
+    </style>
+    <script>
+        var products = [
+            { id: 1, name: 'Product 1', image: 'product1.jpg', quantity: 2, pricePerUnit: 10.99 },
+            { id: 2, name: 'Product 2', image: 'product2.jpg', quantity: 1, pricePerUnit: 19.99 },
+            { id: 3, name: 'Product 3', image: 'product3.jpg', quantity: 3, pricePerUnit: 5.99 },
+            { id: 4, name: 'Product 4', image: 'product4.jpg', quantity: 4, pricePerUnit: 8.99 },
+            // Add more products as needed
+        ];
+
+        function calculateSubtotal(quantity, pricePerUnit) {
+            if (isNaN(quantity) || isNaN(pricePerUnit)) {
+                return "Invalid input";
+            }
+
+            var subtotal = quantity * pricePerUnit;
+            return Math.round(subtotal * 100) / 100;
+        }
+
+        function removeProduct(productId) {
+            products = products.filter(product => product.id !== productId);
+            updateProductList();
+        }
+
+        function updateProductList() {
+            var tableBody = document.getElementById('productListBody');
+            tableBody.innerHTML = '';
+
+            products.forEach(product => {
+                var row = tableBody.insertRow();
+                var cell = row.insertCell(0);
+                cell.innerHTML = `<img src="${product.image}" alt="${product.name}">`;
+
+                cell = row.insertCell(1);
+                cell.textContent = product.name;
+
+                cell = row.insertCell(2);
+                cell.textContent = product.quantity;
+
+                cell = row.insertCell(3);
+                cell.textContent = `$${product.pricePerUnit.toFixed(2)}`;
+
+                cell = row.insertCell(4);
+                var subtotal = calculateSubtotal(product.quantity, product.pricePerUnit);
+                cell.textContent = isNaN(subtotal) ? "Invalid input" : `$${subtotal.toFixed(2)}`;
+
+                cell = row.insertCell(5);
+                var removeButton = document.createElement('button');
+                removeButton.textContent = 'Remove';
+                removeButton.onclick = function () {
+                    removeProduct(product.id);
+                };
+                cell.appendChild(removeButton);
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            updateProductList();
+        });
+    </script>
+</head>
+<body>
+    <h1>Product List</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Image</th>
+                <th>Name</th>
+                <th>Quantity</th>
+                <th>Price Per Unit</th>
+                <th>Subtotal</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody id="productListBody"></tbody>
+    </table>
+    <p>Total Subtotal: <span id="totalSubtotal">$0.00</span></p>
+</body>
+</html>

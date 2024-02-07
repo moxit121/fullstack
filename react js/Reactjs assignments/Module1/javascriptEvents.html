@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+
+<body onload="checkyourCookies()" >
+
+
+<div style="border: 1px solid; padding: 10px; border-radius: 5px; margin: 10px; ">
+    <h3>Onclick: When a user clicks on a button or inputs it occurs.</h3>
+    <button type="button" onclick="Greet()">Please click here! </button>
+</div>
+<div style="border: 1px solid; padding: 10px; border-radius: 5px; margin: 10px;">
+    <h3>Onmouseover: When a user mouses over on the button.</h3>
+    <button type="button" onmouseover="Wish()">Mouse over here!</button>
+</div>
+
+<div style="border: 1px solid; padding: 10px; border-radius: 5px; margin: 10px;">
+    <h3>Onkeyup</h3>
+    <label for="">Enter your First name: </label>
+    <input type="text" id="firstname" onkeyup="myKeyUpFunction()">
+    <p>My First name is: <span id="Test"></span></p>
+</div>
+
+<div style="border: 1px solid; padding: 10px; border-radius: 5px; margin: 10px;">
+    <h1 id="demo">Test Mouse over me</h1>
+</div>
+
+<div style="border: 1px solid; padding: 10px; border-radius: 5px; margin: 10px;">
+    Please Enter name: <input type="text" id="name">
+    <p id="OnloadTest"></p>
+</div>  
+
+<div style="border: 1px solid ; padding: 10px; border-radius: 5px; margin: 10px;">
+    <p>This is the best scenario to uses the addEventListener() function to attach a "focus" event to an input element box.</p>
+    Enter your Last name: <input type="text" id="Lastname">
+</div>
+
+    <div style="border: 1px solid ; padding: 10px; border-radius: 5px; margin: 10px;">
+        <p>This code snippet uses the addEventListener() method and performs a "blur" event to an input element.</p>
+        <p>please write something and see the result (blur).</p>
+        <input type="text" id="fname">
+    </div>
+
+</script>
+
+    <script>
+
+        function Greet() {
+          alert('Hello World!');
+        }
+
+        function Wish() {
+          alert('Wish You Wonderfull Birthday');
+        }
+        
+        function myKeyUpFunction() {
+            var input = document.getElementById("firstname").value;
+            document.getElementById("Test").innerHTML = input;
+        }
+
+        document.getElementById("demo").onmouseout = function() {mouseOut()};
+        function mouseOut() {
+            document.getElementById("demo").style.color = "cyan";
+        }
+
+        document.getElementById("name").onchange = function() {myFunction()};
+        function myFunction() {
+            var x = document.getElementById("name");
+            x.value = x.value.toUpperCase();
+        }
+
+        function checkyourCookies() {
+            var text = "";
+            if (navigator.cookieEnabled == true) {
+                text = "your web page Cookies are active.";
+            } else {
+                text = "your web page Cookies are not active.";
+            }
+                document.getElementById("OnloadTest").innerHTML = text;
+            }
+        
+
+            document.getElementById("Lastname").addEventListener("focus", myFunction);
+            function myFunction() {
+                document.getElementById("Lastname").style.backgroundColor = "lightpink";
+            }
+
+            document.getElementById("fname").addEventListener("blur", myFunction);
+            function myFunction() {
+                alert("your Input element lost focus.");
+            }
+
+
+      </script>
+</body> 
+</html>
