@@ -1,0 +1,22 @@
+{
+  "user": [
+    {
+      "id": "",
+      "name": "sagar",
+      "email": "sagar@gamil.com",
+      "password": "123"
+    },
+    {
+      "id": "717a",
+      "name": "d",
+      "email": "d@gmail.com",
+      "password": "111"
+    },
+    {
+      "id": "0527",
+      "name": "moxit",
+      "email": "moxitshah121@gmail.com",
+      "password": "121"
+    }
+  ]
+}

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Work Studio</title>
+    <style>
+        /* Add your custom styles here */
+
+        body {
+            margin: 0;
+            font-family: sans-serif;
+            line-height: 1.6;
+            background-color: #f2f2f2;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .section {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: #fff;
+            background-color: #333;
+        }
+
+        .section:nth-child(odd) {
+            background-color: #555;
+        }
+
+        .section h1 {
+            font-size: 6rem;
+            margin-bottom: 2rem;
+        }
+
+        .section p {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        /* Add your custom scrolling animation styles here */
+
+        .scroll-container {
+            position: relative;
+            overflow: hidden;
+            height: 100%;
+        }
+
+        .scroll-element {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            transform: translateY(-100%);
+            background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.1));
+            pointer-events: none;
+        }
+
+        .scroll-element:nth-child(2) {
+            animation: scroll-animation 10s ease infinite;
+        }
+
+        .scroll-element:nth-child(3) {
+            animation: scroll-animation 15s ease infinite;
+        }
+
+        .scroll-element:nth-child(4) {
+            animation: scroll-animation 20s ease infinite;
+        }
+
+        @keyframes scroll-animation {
+            0% {
+                transform: translateY(-100%);
+            }
+            100% {
+                transform: translateY(100%);
+            }
+        }
+    </style>
+</head>
+<body data-scroll-container>
+    <div class="scroll-container">
+        <div class="scroll-element"></div>
+        <div class="scroll-element"></div>
+        <div class="scroll-element"></div>
+        <div class="scroll-element"></div>
+    </div>
+    <div class="container">
+        <div class="section">
+            <h1>Work Studio</h1>
+            <p>Welcome to our digital agency!</p>
+        </div>
+        <div class="section">
+            <h1>Our Services</h1>
+            <p>We offer website design, branding, and digital marketing services.</p>
+        </div>
+        <div class="section">
+            <h1>Our Work</h1>
+            <p>Check out some of our latest projects.</p>
+        </div>
+        <div class="section">
+            <h1>Contact Us</h1>
+            <p>Get in touch with us to learn more about our services.</p>
+        </div>

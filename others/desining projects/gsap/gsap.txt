@@ -1,0 +1,21 @@
+gsap : Greenshock Animation
+
+Animation is a journey to initial to final position
+
+In GSAP two methods available
+1 gsap.to("id/class",{
+	property : value
+})
+2 gspa.from("id/class",{
+	property : value
+})
+
+some usefull nd basic properties
+
+for position x : 300 it will change box to vertical
+for position y : 300 it will change box to horizontal
+duration : 1 - kitne time ke liye animation chalega
+delay : 1 kitne time ke badd animation chalega 
+stagger : 1  agar 3 h1 hai to one by one chalega 
+repeat : agar -1 hai to infinite chalega ,or positive value me value +1 tak chalega
+yoyo :value is "Trues" its like jumping ball ,like that playing tool YoYo 
