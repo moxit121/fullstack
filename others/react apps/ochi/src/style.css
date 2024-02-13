@@ -1,0 +1,12 @@
+/* styles.css */
+
+@font-face {
+    font-family: 'NeueMontreal';
+    src: url('./fonts/neue-montreal.woff2') format('woff2'),
+         url('./fonts/neue-montreal.woff') format('woff');
+  }
+  
+  .neue-montreal-font {
+    font-family: 'NeueMontreal', sans-serif;
+  }
+  
